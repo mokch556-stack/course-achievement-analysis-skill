@@ -1,7 +1,7 @@
 {
   "name": "course_achievement_analysis",
   "display_name": "课程教学目标达成度分析技能",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "release_date": "2026-06-27",
   "description": "从教学大纲/开课说明/成绩登记表提取数据，计算各教学目标达成度，生成合规的达成度计算表(.xlsx)和附件7分析报告(.docx)。支持4段式报告结构(+图表)、XML层表格操作、三核查验证。",
   "author": "小千 (QwenPaw)",
@@ -12,12 +12,21 @@
   },
   "compatibility": {
     "qwenpaw": ">=2.0",
-    "os": ["windows"],
+    "os": [
+      "windows"
+    ],
     "python": ">=3.9"
   },
   "dependencies": {
-    "python": ["python-docx", "openpyxl", "lxml", "Pillow"],
-    "tools": ["browser_use"]
+    "python": [
+      "python-docx",
+      "openpyxl",
+      "lxml",
+      "Pillow"
+    ],
+    "tools": [
+      "browser_use"
+    ]
   },
   "config_fields": {
     "course.name": "课程名称",
@@ -31,16 +40,22 @@
     "template.attachment6": "附件6模板路径",
     "template.attachment7": "附件7模板路径"
   },
-  "changelog": [
-    {
-      "version": "1.0.0",
+  "changelog": {
+    "v2.0.0": {
       "date": "2026-06-27",
       "changes": [
-        "初版发布",
-        "基于农产品电子商务运营管理课程实战提炼",
-        "工作流：读取教学文件 → 构建满分行 → 提取成绩 → 计算达成度 → 生成xlsx → 生成docx → 三核查",
-        "包含：XML层表格操作、4段式报告、建设性措辞规则、避坑速查"
+        "三步工作流程重构：Step1空白模板(3Sheet)→Step2产出文件→Step3核验+补丁+整理",
+        "Step1增加6轮追问确认流程（基本信息→考核构成→课点归属→评分标准→矩阵→示例学生）",
+        "集成农产品电商实战教训：col5期末成绩/两班列结构探查/XML层操作/建设性措辞",
+        "新增特殊场景处理：学期判定、终结性考核正确定义、图表配置",
+        "新增避坑速查表（11项血泪教训）"
+      ]
+    },
+    "v1.0.0": {
+      "date": "2026-06-26",
+      "changes": [
+        "初始版本：基本达成度计算和报告生成流程"
       ]
     }
-  ]
+  }
 }
