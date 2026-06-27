@@ -8,7 +8,7 @@
   "license": "MIT",
   "repository": {
     "type": "github",
-    "url": "https://github.com/mokch556-stack/qwenpaw-skills"
+    "url": "https://github.com/mokch556-stack/course-achievement-analysis-skill"
   },
   "compatibility": {
     "qwenpaw": ">=2.0",
