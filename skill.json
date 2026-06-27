@@ -1,0 +1,46 @@
+{
+  "name": "course_achievement_analysis",
+  "display_name": "课程教学目标达成度分析技能",
+  "version": "1.0.0",
+  "release_date": "2026-06-27",
+  "description": "从教学大纲/开课说明/成绩登记表提取数据，计算各教学目标达成度，生成合规的达成度计算表(.xlsx)和附件7分析报告(.docx)。支持4段式报告结构(+图表)、XML层表格操作、三核查验证。",
+  "author": "小千 (QwenPaw)",
+  "license": "MIT",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/mokch556-stack/qwenpaw-skills"
+  },
+  "compatibility": {
+    "qwenpaw": ">=2.0",
+    "os": ["windows"],
+    "python": ">=3.9"
+  },
+  "dependencies": {
+    "python": ["python-docx", "openpyxl", "lxml", "Pillow"],
+    "tools": ["browser_use"]
+  },
+  "config_fields": {
+    "course.name": "课程名称",
+    "course.code": "课程编号",
+    "course.semester": "学期（如2025-2026-2）",
+    "course.credit": "学分",
+    "course.exam_type": "考核方式（考试/考查）",
+    "output.base_dir": "产出根目录（如 E:\\qwenpaw生成）",
+    "output.course_dir": "课程对应目录（如 农产品电子商务运营管理）",
+    "template.attachment5": "附件5模板路径",
+    "template.attachment6": "附件6模板路径",
+    "template.attachment7": "附件7模板路径"
+  },
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-06-27",
+      "changes": [
+        "初版发布",
+        "基于农产品电子商务运营管理课程实战提炼",
+        "工作流：读取教学文件 → 构建满分行 → 提取成绩 → 计算达成度 → 生成xlsx → 生成docx → 三核查",
+        "包含：XML层表格操作、4段式报告、建设性措辞规则、避坑速查"
+      ]
+    }
+  ]
+}

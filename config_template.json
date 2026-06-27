@@ -1,0 +1,31 @@
+{
+  "$schema": "https://qwenpaw.ai/schemas/skill-config-v1.json",
+  "description": "课程达成度分析的配置模板。复制为 config.json 后填写。",
+  "course": {
+    "name": "（必填）课程名称，如 农产品电子商务运营管理",
+    "code": "（必填）课程编号",
+    "semester": "（必填）学期，如 2025-2026-2",
+    "credit": "（必填）学分",
+    "exam_type": "（必填）考核方式，考试/考查",
+    "department": "（必填）学院/系，如 信息学院"
+  },
+  "output": {
+    "base_dir": "E:\\qwenpaw生成",
+    "course_dir": "（必填）课程目录名"
+  },
+  "template": {
+    "attachment5": "（可选）附件5模板路径",
+    "attachment6": "（可选）附件6模板路径",
+    "attachment7": "（可选）附件7模板路径"
+  },
+  "score_sheet": {
+    "class1_file": "（必填）1班成绩登记表路径",
+    "class2_file": "（可选）2班成绩登记表路径",
+    "col_peacetime": 4,
+    "col_exam": 5
+  },
+  "verification": {
+    "outline_path": "（必填）教学大纲路径",
+    "syllabus_path": "（必填）开课说明路径"
+  }
+}
