@@ -1,0 +1,11 @@
+# OS files
+Thumbs.db
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Config (real credentials only - template is committed)
+config.json
