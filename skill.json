@@ -1,9 +1,9 @@
 {
   "name": "course_achievement_analysis",
   "display_name": "课程教学目标达成度分析技能",
-  "version": "1.0.0",
-  "release_date": "2026-06-27",
-  "description": "从教学大纲/开课说明/成绩登记表提取数据，计算各教学目标达成度，生成合规的达成度计算表(.xlsx)和附件7分析报告(.docx)。支持4段式报告结构(+图表)、XML层表格操作、三核查验证。",
+  "version": "4.1.0",
+  "release_date": "2026-06-30",
+  "description": "从课程档案自动归集学生成绩，按专业生成学校标准宽表格式达成度计算表(.xlsx)和附件7分析报告(.docx)。自动探查目录→归集成绩→拆分配置→按专业分表→三核查验证。",
   "author": "小千 (QwenPaw)",
   "license": "MIT",
   "repository": {
@@ -16,20 +16,22 @@
     "python": ">=3.9"
   },
   "dependencies": {
-    "python": ["python-docx", "openpyxl", "lxml", "Pillow"],
+    "python": ["python-docx", "openpyxl", "lxml", "Pillow", "pandoc"],
     "tools": ["browser_use"]
   },
   "config_fields": {
-    "course.name": "课程名称",
-    "course.code": "课程编号",
-    "course.semester": "学期（如2025-2026-2）",
-    "course.credit": "学分",
-    "course.exam_type": "考核方式（考试/考查）",
-    "output.base_dir": "产出根目录（如 E:\\qwenpaw生成）",
-    "output.course_dir": "课程对应目录（如 农产品电子商务运营管理）",
-    "template.attachment5": "附件5模板路径",
-    "template.attachment6": "附件6模板路径",
-    "template.attachment7": "附件7模板路径"
+    "course_name": "课程名称",
+    "course_code": "课程编号",
+    "term": "学期（如2025-2026学年第2学期）",
+    "assessment": "考核方式（考试/考查）",
+    "major": "专业名称",
+    "classes": "班级列表",
+    "teacher": "教师姓名",
+    "hours": "学时",
+    "credits": "学分",
+    "kaohe_desc": "考核方式描述",
+    "targets": "教学目标列表（含子项映射）",
+    "students": "学生成绩数据"
   },
   "changelog": [
     {
@@ -38,8 +40,48 @@
       "changes": [
         "初版发布",
         "基于农产品电子商务运营管理课程实战提炼",
-        "工作流：读取教学文件 → 构建满分行 → 提取成绩 → 计算达成度 → 生成xlsx → 生成docx → 三核查",
-        "包含：XML层表格操作、4段式报告、建设性措辞规则、避坑速查"
+        "工作流：读取教学文件 → 构建满分行 → 提取成绩 → 计算达成度 → 生成xlsx → 生成docx → 三核查"
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "date": "2026-06-28",
+      "changes": [
+        "升级为脚本库+指南模式（7步流程）",
+        "14列标准布局：每个目标5行子项",
+        "加权平均→简单算术平均修正",
+        "30+条关键经验固化"
+      ]
+    },
+    {
+      "version": "3.0.0",
+      "date": "2026-06-29",
+      "changes": [
+        "重写：新增Step 0数据归集（aggregate_scores.py）",
+        "子项→目标映射自动从教学大纲/开课说明提取",
+        "阶段测试按项目归属拆分",
+        "按专业分表生成（非按班级）",
+        "遍历全部Sheet铁律"
+      ]
+    },
+    {
+      "version": "4.0.0",
+      "date": "2026-06-30",
+      "changes": [
+        "xlsx格式改为学校标准宽表格式（参考丁向朝老师）",
+        "单Sheet宽表：20列折合后数据 + SUM公式",
+        "zhe_full修正：线上/手册/课堂=2.5, 阶段测试=5, 期末考试=12.5",
+        "docx改为从config直接计算达成度（不依赖Excel公式）"
+      ]
+    },
+    {
+      "version": "4.1.0",
+      "date": "2026-06-30",
+      "changes": [
+        "分析文本铁律：终结性考核必须含7段百分比+典型错误+低分学生名单",
+        "存在问题≥8点（学生4+教师4），改进意见≥5条",
+        "分析文本总字数≥1000字，不得使用纯模板占位文本",
+        "自主智能规则内化为Skill自动行为"
       ]
     }
   ]

@@ -9,3 +9,21 @@ __pycache__/
 
 # Config (real credentials only - template is committed)
 config.json
+config_*.json
+
+# Debug / temp / backup files
+_*.py
+_*.json
+_*.xlsx
+_*.docx
+*.bak
+_temp/
+*_temp*
+
+# Generated output (xlsx/docx with real data)
+*.xlsx
+*.docx
+
+# Exceptions - keep templates
+!templates/*.docx
+!templates/*.xlsx
