@@ -1,4 +1,4 @@
-# 📊 课程教学目标达成度分析技能 v2.0.0
+# 📊 课程教学目标达成度分析技能（course-achievement-analysis-skill）v5.0.0
 
 > 操作时间: 2026-06-28 13:55
 > 操作agent: default

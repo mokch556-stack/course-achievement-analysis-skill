@@ -7,9 +7,9 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Config (real credentials only - template is committed)
-config.json
-config_*.json
+# Config (real credentials only - template is committed; root only, .cicd/config.json must be tracked)
+/config.json
+/config_*.json
 
 # Debug / temp / backup files
 _*.py

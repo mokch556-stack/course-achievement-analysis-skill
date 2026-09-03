@@ -1,0 +1,12 @@
+{
+  "name": "course-achievement-analysis-skill",
+  "required_files": [
+    "SKILL.md",
+    "skill.json",
+    "README.md",
+    "versions/CHANGELOG.md",
+    "versions/v1.0.0",
+    "versions/v2.0.0",
+    "versions/v2.0.1"
+  ]
+}
