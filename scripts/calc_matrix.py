@@ -48,7 +48,8 @@ def calc_matrix(targets, assessment, course_points, subj_assignments, verbose=Fa
         print(f"\n📊 课点分析:")
         for t in targets:
             pts = t.get('points', [])
-            print(f"  目标{t['id']}: {len(pts)}个课点 → 权重{target_weights[f'目标{t['id']}']:.2%}")
+            tkey = f"目标{t['id']}"
+            print(f"  目标{t['id']}: {len(pts)}个课点 → 权重{target_weights[tkey]:.2%}")
         print(f"  总课点: {total_points}")
     
     # 初始化矩阵
